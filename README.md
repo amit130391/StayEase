@@ -71,14 +71,15 @@ You can import the Postman collection for this project using the following link:
 1. GET /admin/users - Retrieve a list of all user, only admin can view all the users.
 2. GET user/me - Retrieve the details of an authenticated user.
 3. POST /register - Registers a new user.
-### Book Endpoints
-1. GET /books - Retrieve a list of all books.
-2. POST /admin/book - Save a new book in the DB. Only admin can save a new book.
-3. PUT /admin/book/{bookId}?status={Status} - Updates the given book. Only admin is allowed to update.
-4. DELETE /book/{bookId} - Deletes a book with the given ID.
-### Rental Endpoints
-1. POST /user/me/books/{bookId}/rent - Rent a book with the given Id for the authenticated user. Shows required error if the book is already rented or is unvailable or user has already rented 2 books. 
-2. POST /user/me/books/{bookId}/return - Return a book with the given Id for the authenticated user. Shows required error if the book is not rented by the user or if there is no such book.
+4. POST /auth/login - Login a user and return jwt token for authentication.
+### Hotel Endpoints
+1. GET /hotels - Retrieve a list of all hotels.
+2. POST /admin/hotel - Save a new hotel in the DB. Only admin can save a new hotel.
+3. PUT /manager/hotel/{hotelId} - Updates a given hotel. Only manager is allowed to update, with the request body.
+4. DELETE /admin/hotel/{hotelId} - Deletes a hotel with the given ID. Only admin allowed to delete.
+### Booking Endpoints
+1. POST /user/me/hotels/{hotelId} - Book hotel room with the given hotelId for the authenticated user.A single room can be booked per request .Shows required error if there is no available rooms in the hotel. 
+2. POST /manager/bookings/{bookingId} - Cancel the booking for the given bookingId. Only hotel managers are allowed to cancel the booking.
    
 ## Contact
 If you have any questions or suggestions, feel free to contact me:
